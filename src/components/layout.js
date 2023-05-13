@@ -22,9 +22,21 @@ const Layout = ({ children }) => {
     }
   `)
 
+  /**
+  * Not fully needed, is optional to send Links to navbar since
+  * it contains a defualt list of links to display. Client can send
+  * new links that would update the navbar 
+   */
+  const links = [
+    {text: data.site.siteMetadata?.title + ' (Home)' || 'Title', url: ''},
+    {text: 'Page-2', url: 'page-2/'},
+    {text: 'TypeScript', url: 'using-typescript/'}
+  ] 
+
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      {/* links prop is optional */}
+      <Header links={links}/>
       <div
         style={{
           margin: `0 auto`,
